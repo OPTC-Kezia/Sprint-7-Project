@@ -23,29 +23,19 @@ test('Verify status code is 201', async () => {
 	expect(ourStatus).toBe(201)
 });
 
-const requestBody2 = {
-    "productsList": [
-        {
-            "id": 10,
-            "quantity": 2
-        }
-    ]
-}
-
 test('response body should contain name of kit', async () => {
 	let ourResponse;
 	try {
-		const response = await fetch(`${config.API_URL}/api/v1/kits/2/products`, {
+		const response = await fetch(`${config.API_URL}/api/v1/kits`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(requestBody2)
+			body: JSON.stringify(requestBody)
 		});
 		ourResponse = await response.json();
 	} catch (error) {
 		console.error(error)
 	}
-	const productExists = ourResponse.productsList.some(product => product.name === 'Pita');
-    expect(productExists).toBe(true);
+	expect(ourResponse['name']).toEqual('tonysChocolate');
 });
