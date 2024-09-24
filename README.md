@@ -3,7 +3,9 @@ We are using Javascript HTTP requests to test server function and ensure that th
 
 We will be using VSCode (text editor) & Github (cloud-based data storing system)
 
-To run the tests you will need to navigate into the project folder, ensure node has been installed, and then open a terminal. once in the terminal enter the command npx jest /folder/testFile to run the tests for each request type.
+To run the tests you will need to navigate into the project folder, run the command 'npm install' this will ensure you have node, and then open a terminal. once in the terminal enter the command npx jest /folder/testFile to run the tests for each request type.
+
+Before testing you will need to start up a server and give your tests easy access to the url. Go to 'config'js' and paste your server url there. Be weary after some time your server will shut down and you will need to start a fresh one
 
 In task 1 we are testing GET requests for the response status code 200 and also making sure that the data requested is properly being pulled from the server
 

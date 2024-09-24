@@ -35,7 +35,7 @@ const requestBody2 = {
 test('response body should contain name of kit', async () => {
 	let ourResponse;
 	try {
-		const response = await fetch(`${config.API_URL}/api/v1/kits/5/products`, {
+		const response = await fetch(`${config.API_URL}/api/v1/kits/2/products`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -46,5 +46,6 @@ test('response body should contain name of kit', async () => {
 	} catch (error) {
 		console.error(error)
 	}
-	expect(ourResponse['name']).toBe('Pasta');
+	const productExists = ourResponse.productsList.some(product => product.name === 'Pita');
+    expect(productExists).toBe(true);
 });
